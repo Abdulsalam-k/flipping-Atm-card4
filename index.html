@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flipping Card UI design</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <!-- Card Front -->
+            <div class="card-front">
+                <div class="card-header">
+                    <img class="mastercard-logo" src="logo.png" alt="Mastercard">
+                    <p class="card-text">Mastercard</p>
+                </div>
+                
+                <div class="chip-placeholder">
+                    <div class="chip"></div>
+                </div>
+
+                <div class="card-number">
+                    <span>5248</span>
+                    <span>7463</span>
+                    <span>2189</span>
+                    <span>3047</span>
+                </div>
+
+                <div class="card-info">
+                    <div class="cardholder">
+                        <label>CARDHOLDER NAME</label>
+                        <p>ABDUL SALAM</p>
+                    </div>
+                    <div class="expiry">
+                        <label>VALID THRU</label>
+                        <p>12/28</p>
+                    </div>
+                </div>
+
+                <div class="card-type">
+                    <p>DEBIT</p>
+                </div>
+            </div>
+
+            <!-- Card Back -->
+            <div class="card-back">
+                <div class="magnetic-stripe"></div>
+
+                <div class="back-content">
+                    <div class="cvv-section">
+                        <label>CVV</label>
+                        <input type="text" placeholder="***" readonly>
+                    </div>
+
+                    <p class="signature-line">_________A.S________________</p>
+                    <p class="signature-label">Cardholder Signature</p>
+
+                    <div class="back-footer">
+                        <img class="mastercard-logo-back" src="logo.png" alt="Mastercard">
+                        <p class="bank-name">Polaris Bank</p>
+                        <p class="customer-service">1-800-POLARIS</p>
+                        <p class="website">www.polarisbank.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+    const card = document.querySelector('.card');
+    card.addEventListener('click', function() {
+        card.classList.toggle('flipped');
+    });
+</script>
+</body>
+</html>

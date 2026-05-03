@@ -1,0 +1,280 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    font-family: 'Courier New', monospace;
+    background: linear-gradient(135deg, #0f3460 0%, #16213e 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 100%;
+    max-width: 500px;
+    padding: 20px;
+    perspective: 1000px;
+}
+
+/* Card Flip Styling */
+.card {
+    width: 100%;
+    height: 300px;
+    position: relative;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    transition: transform 0.8s ease;
+    border-radius: 20px;
+    user-select: none;
+    touch-action: manipulation;
+}
+
+.card.flipped {
+    transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+
+}
+
+/* FRONT SIDE */
+.card-front {
+    background: linear-gradient(135deg, #0066cc 0%, #00ccff 100%);
+    color: white;
+    z-index: 2;
+    justify-content: space-between;
+}
+
+.card-header {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.mastercard-logo {
+    width: 60px;
+    height: 40px;
+    object-fit: contain;
+}
+.card-text {
+    
+    color: #ffffff; 
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+    margin: 0; /
+}
+
+.chip-placeholder {
+    width: 50px;
+    height: 40px;
+}
+
+.chip {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #c9a961 0%, #e6d5a1 100%);
+    border-radius: 8px;
+    border: 2px solid #997d3f;
+}
+
+.card-number {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.card-number span {
+    flex: 1;
+    text-align: center;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+}
+
+.card-info {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    margin-bottom: 10px;
+}
+
+.cardholder,
+.expiry {
+    flex: 1;
+}
+
+.cardholder label,
+.expiry label {
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    opacity: 0.9;
+}
+
+.cardholder p,
+.expiry p {
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 5px;
+    letter-spacing: 1px;
+}
+
+.card-type {
+    text-align: right;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+/* BACK SIDE */
+.card-back {
+    background: linear-gradient(135deg, #1a1a4d 0%, #2d1b69 100%);
+    color: white;
+    transform: rotateY(180deg);
+    justify-content: flex-start;
+}
+
+.magnetic-stripe {
+    width: 100%;
+    height: 45px;
+    background: linear-gradient(90deg, #000000 0%, #111111 50%, #000000 100%);
+    border-radius: 5px;
+    margin-bottom: 25px;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.8);
+}
+
+.back-content {
+    width: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.cvv-section {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+    background: white;
+    color: black;
+    padding: 8px 15px;
+    border-radius: 5px;
+    width: 120px;
+    margin-left: auto;
+}
+
+.cvv-section label {
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.cvv-section input {
+    width: 50px;
+    padding: 5px;
+    border: none;
+    background: #f0f0f0;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.signature-line {
+    font-size: 14px;
+    margin: 20px 0 5px 0;
+    width: 100%;
+    text-align: right;
+    opacity: 0.7;
+}
+
+.signature-label {
+    font-size: 11px;
+    text-align: right;
+    opacity: 0.6;
+    margin-bottom: 15px;
+}
+
+.back-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.mastercard-logo-back {
+    width: 50px;
+    height: 35px;
+    object-fit: contain;
+    margin-bottom: 8px;
+}
+
+.bank-name {
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.customer-service {
+    font-size: 12px;
+    opacity: 0.8;
+}
+
+.website {
+    font-size: 11px;
+    opacity: 0.7;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    .card {
+        height: 280px;
+    }
+
+    .card-front,
+    .card-back {
+        padding: 20px;
+    }
+
+    .card-number {
+        font-size: 18px;
+    }
+
+    .cardholder p,
+    .expiry p {
+        font-size: 14px;
+    }
+
+    .mastercard-logo {
+        width: 50px;
+        height: 35px;
+    }
+
+    .chip-placeholder {
+        width: 40px;
+        height: 32px;
+    }
+}
